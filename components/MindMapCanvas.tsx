@@ -28,7 +28,8 @@ interface Props {
   draggedNodeId: string | null;
   setContextMenu: (menu: { x: number; y: number; nodeId: string } | null) => void;
   canvasProps: ReturnType<typeof import('@/hooks/useCanvasInteractions').default>;
-   onAiExpand: (nodeId: string) => void;
+  onAiExpand: (nodeId: string) => void;
+  searchTerm: string;
 }
 
 const MindMapCanvas: React.FC<Props> = ({
@@ -42,6 +43,7 @@ const MindMapCanvas: React.FC<Props> = ({
   setContextMenu,
   canvasProps,
   onAiExpand,
+  searchTerm,
 }) => {
   const {
     canvasRef,
@@ -112,6 +114,7 @@ const MindMapCanvas: React.FC<Props> = ({
             onMouseDown={canvasProps.startNodeDrag}
             onContextMenu={setContextMenu}
             onAiExpand={onAiExpand}
+            searchTerm={searchTerm}
           />
         ))}
 

@@ -20,7 +20,8 @@ interface Props {
   isDragged: boolean;
   onMouseDown: (e: React.MouseEvent, nodeId: string) => void;
   onContextMenu: (pos: { x: number; y: number; nodeId: string } | null) => void;
-   onAiExpand: (nodeId: string) => void;
+  onAiExpand: (nodeId: string) => void;
+  searchTerm: string;
 }
 
 const NodeComponent: React.FC<Props> = ({
@@ -34,6 +35,7 @@ const NodeComponent: React.FC<Props> = ({
   onMouseDown,
   onContextMenu,
   onAiExpand,
+  searchTerm,
 }) => {
   const [isLoading, setIsLoading] = React.useState(false);
   const hasChildren = node.childrenIds.length > 0;
@@ -145,7 +147,7 @@ const NodeComponent: React.FC<Props> = ({
         onContextMenu({ x: e.clientX, y: e.clientY, nodeId: node.id });
       }}
       style={baseStyle}
-      className={`node absolute pointer-events-auto border-2 rounded-[2rem] p-6 flex flex-col group select-none ${isDragged ? 'scale-110 shadow-2xl' : 'hover:scale-102 transition-all duration-300'}`}
+      className={`node absolute pointer-events-auto border-2 rounded-[2rem] p-6 flex flex-col group select-none ${isDragged ? 'scale-110 shadow-2xl' : 'hover:scale-102 transition-all duration-300'} ${searchTerm && node.text.toLowerCase().includes(searchTerm.toLowerCase()) ? 'ring-2 ring-yellow-400' : ''}`}
     >
 
       {node.subLabel && (

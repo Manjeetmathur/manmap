@@ -43,6 +43,7 @@ export default function MindMapPage() {
     handleLoadProject,
     handleDeleteProject,
     handleProjectRename,
+    handleExportJSON,
     handleSaveAs,
     newProjectDialog,
     setNewProjectDialog,
@@ -62,6 +63,8 @@ export default function MindMapPage() {
     setAiPrompt,
     aiNodeDialog,
     setAiNodeDialog,
+    searchTerm,
+    setSearchTerm,
     createNewProject,
     renameProject,
     deleteProjectConfirm,
@@ -90,6 +93,7 @@ export default function MindMapPage() {
         onLoadProject={handleLoadProject}
         onDeleteProject={handleDeleteProject}
         onProjectRename={handleProjectRename}
+        onExportJSON={handleExportJSON}
         onSaveAs={handleSaveAs}
         onFullAIGeneration={handleFullAIGeneration}
         isGenerating={isGenerating}
@@ -108,6 +112,8 @@ export default function MindMapPage() {
         setOrientation={setOrientation}
         onResetView={() => canvasProps.resetView()}
         isSyncing={isSyncing}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
       />
       <MindMapCanvas
         nodes={nodes}
@@ -120,6 +126,7 @@ export default function MindMapPage() {
         setContextMenu={setContextMenu}
         canvasProps={canvasProps}
         onAiExpand={handleBrainstorm}
+        searchTerm={searchTerm}
       />
 
 

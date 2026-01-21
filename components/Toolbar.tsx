@@ -15,6 +15,8 @@ interface Props {
   setOrientation: (o: LayoutOrientation) => void;
   onResetView: () => void;
   isSyncing: boolean;
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
 }
 
 const Toolbar: React.FC<Props> = ({
@@ -26,6 +28,8 @@ const Toolbar: React.FC<Props> = ({
   setOrientation,
   onResetView,
   isSyncing,
+  searchTerm,
+  setSearchTerm,
 }) => {
   const toggleTheme = () => {
     const currentIdx = THEME_PRESETS.findIndex((t) => t.name === design.name);
@@ -52,6 +56,14 @@ const Toolbar: React.FC<Props> = ({
       </div>
 
       <div className="flex items-center gap-3 pointer-events-auto p-3 rounded-2xl border border-black/5 shadow-xl backdrop-blur-3xl" style={{ backgroundColor: design.surfaceColor }}>
+        <input
+          type="text"
+          placeholder="Search nodes..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="px-3 py-2 text-xs bg-transparent border border-black/5 rounded-lg focus:outline-none focus:border-blue-500"
+          style={{ color: design.textColor }}
+        />
         <button onClick={toggleTheme} className="p-2 rounded-xl hover:bg-black/5 transition-all" title="Switch Theme">
           <Icons.Palette />
         </button>

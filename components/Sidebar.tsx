@@ -22,6 +22,7 @@ interface Props {
   isSyncing: boolean;
   design?: DesignConfig; // optional, will use default if not passed
   setProjectContextMenu: (menu: { x: number; y: number; projectId: string } | null) => void;
+  onExportJSON: () => void;
 }
 
 const Sidebar: React.FC<Props> = ({
@@ -39,6 +40,7 @@ const Sidebar: React.FC<Props> = ({
   isSyncing,
   design = { surfaceColor: '#ffffff', textColor: '#000000' } as DesignConfig,
   setProjectContextMenu,
+  onExportJSON,
 }) => {
   return (
     <>
@@ -74,6 +76,12 @@ const Sidebar: React.FC<Props> = ({
             >
               <Icons.Save /> Save As
             </button>
+            {/* <button
+              onClick={onExportJSON}
+              className="w-full flex items-center gap-3 px-4 py-3 bg-black/5 hover:bg-black/10 rounded-xl text-xs font-bold transition-all"
+            >
+              <Icons.Folder /> Export JSON
+            </button> */}
             <button
               onClick={onFullAIGeneration}
               disabled={isGenerating}

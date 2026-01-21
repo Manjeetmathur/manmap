@@ -49,6 +49,7 @@ export default function useMindMap(initialProjectId?: string) {
   const [newProjectName, setNewProjectName] = useState('');
   const [saveAsName, setSaveAsName] = useState('');
   const [aiPrompt, setAiPrompt] = useState('');
+  const [searchTerm, setSearchTerm] = useState('');
 
   // Initialize nodes only once on client side
   useEffect(() => {
@@ -160,6 +161,19 @@ export default function useMindMap(initialProjectId?: string) {
     }
     setDeleteProjectDialog({ open: false, projectId: '' });
   };
+
+  const handleExportJSON = () => {
+    const data = { projectName, nodes, orientation };
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${projectName || 'mindmap'}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+
 
   const handleProjectRename = (id: string) => {
     const project = projects.find(p => p.id === id);
@@ -340,6 +354,7 @@ export default function useMindMap(initialProjectId?: string) {
     handleLoadProject,
     handleDeleteProject,
     handleProjectRename,
+    handleExportJSON,
     handleSaveAs,
     newProjectDialog,
     setNewProjectDialog,
@@ -359,6 +374,8 @@ export default function useMindMap(initialProjectId?: string) {
     setAiPrompt,
     aiNodeDialog,
     setAiNodeDialog,
+    searchTerm,
+    setSearchTerm,
     createNewProject,
     renameProject,
     deleteProjectConfirm,
