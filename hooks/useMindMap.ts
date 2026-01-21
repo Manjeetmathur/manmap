@@ -3,7 +3,7 @@
 'use client';
 
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import { MindNode, DesignConfig, LayoutOrientation, MindMapProject, NodeType, AiTreeResponse } from '@/types/types';
+import { MindNode, DesignConfig, LayoutOrientation, MindMapProject, AiTreeResponse } from '@/types/types';
 import { NODE_TYPE_COLORS, THEME_PRESETS } from '@/constants/constants';
 import { subscribeToProjects, saveProject, deleteProject } from '@/lib/firebase';
 import { getAiExpansion, generateFullTree } from '@/services/geminiService';

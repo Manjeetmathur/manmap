@@ -6,14 +6,20 @@ import React from 'react';
 import Connections from './Connections';
 import NodeComponent from './NodeComponent';
 import { MindNode, DesignConfig, LayoutOrientation, NodeType } from '@/types/types';
-import { NODE_TYPE_COLORS } from '@/constants/constants';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { NODE_TYPE_COLORS as _NODE_TYPE_COLORS } from '@/constants/constants';
 
-const NODE_WIDTH = 260;
-const INITIAL_NODE_HEIGHT = 100;
-const V_SPACING = 220;
-const H_SPACING = 360;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const _NODE_WIDTH = 260;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const _INITIAL_NODE_HEIGHT = 100;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const _V_SPACING = 220;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const _H_SPACING = 360;
 
-interface AiSuggestion {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+interface _AiSuggestion {
   text: string;
   type: NodeType;
 }

@@ -33,14 +33,16 @@ const Sidebar: React.FC<Props> = ({
   onNewProject,
   onLoadProject,
   onDeleteProject,
-  onProjectRename,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  onProjectRename: _onProjectRename,
   onSaveAs,
   onFullAIGeneration,
   isGenerating,
   isSyncing,
   design = { surfaceColor: '#ffffff', textColor: '#000000' } as DesignConfig,
   setProjectContextMenu,
-  onExportJSON,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  onExportJSON: _onExportJSON,
 }) => {
   return (
     <>

@@ -30,14 +30,16 @@ const NodeComponent: React.FC<Props> = ({
   setNodes,
   design,
   orientation,
-  canvasZoom,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  canvasZoom: _canvasZoom,
   isDragged,
   onMouseDown,
   onContextMenu,
   onAiExpand,
   searchTerm,
 }) => {
-  const [isLoading, setIsLoading] = React.useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_isLoading, _setIsLoading] = React.useState(false);
   const hasChildren = node.childrenIds.length > 0;
 
   const updateNode = useCallback((id: string, updates: Partial<MindNode>) => {

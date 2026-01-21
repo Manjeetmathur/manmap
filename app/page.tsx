@@ -37,7 +37,6 @@ export default function MindMapPage() {
     setContextMenu,
     projectContextMenu,
     setProjectContextMenu,
-    rootNode,
     // Handlers
     handleNewProject,
     handleLoadProject,
