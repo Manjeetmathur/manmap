@@ -3,14 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+   "dev": "next dev",
     "build": "next build",
-    "preview": "next start",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
-    "typecheck": "tsc --noEmit",
-    "test": "jest",
-    "test:watch": "jest --watch"
+    "start": "next start",
+    "lint": "eslint"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
